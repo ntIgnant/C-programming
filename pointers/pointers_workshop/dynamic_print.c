@@ -4,6 +4,13 @@
 
 void print_int_array(int *array, int size) {
   // TASK: Add code that prints the contents of the given array
+
+  int *pArr = array; // Address of the array
+
+  for(int k = 0; k < size; k++){
+    printf("%d ", pArr[k]);
+  }
+
 }
 
 int main() {
