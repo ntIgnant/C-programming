@@ -4,7 +4,7 @@
 int main()
 {
     char user_name[30];
-
+    prinf("Hollow\n");
     printf("Please enter your name: ");
     // scanf("%s", user_name); // This will get just the string until the fist space
     fgets(user_name, 30, stdin); // fgets gets the full string but has a \n at the end
