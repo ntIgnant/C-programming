@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <math.h>
 
 // struct Person
 // {
@@ -72,5 +72,6 @@ int main()
 
 	printf("Name: %s | Age: %d\n", ptr2->name, ptr2->age);
 
+	free(ptr2);
 	return(0);
 }
