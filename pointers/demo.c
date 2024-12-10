@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 // int main()
 // {
@@ -155,21 +156,79 @@
 // }
 
 
-int main()
-{
-	int tmp_num;
+// int main()
+// {
+// 	int tmp_num;
 
-	int *pNum = (int*)malloc(3 * sizeof(int)); // Dynamically allocate memory for 3 integers
+// 	int *pNum = (int*)malloc(3 * sizeof(int)); // Dynamically allocate memory for 3 integers
 
-	for(int i = 0; i < 3; i++){
-		printf("Enter a number: ");
-		scanf("%d", &tmp_num);
-		pNum[i] = tmp_num;
+// 	for(int i = 0; i < 3; i++){
+// 		printf("Enter a number: ");
+// 		scanf("%d", &tmp_num);
+// 		pNum[i] = tmp_num;
 
-	}
+// 	}
 
 
-	printf("The value stored in the address [%p] 'num' is {%d, %d, %d}\n", &pNum, pNum[0], pNum[1], pNum[2]);
+// 	printf("The value stored in the address [%p] 'num' is {%d, %d, %d}\n", &pNum, pNum[0], pNum[1], pNum[2]);
 
-	return(0);
-}
+// 	return(0);
+// }
+
+
+
+// int main()
+// {
+// 	int numbers[] = {1, 2, 3, 4, 5}; // Array of numbers
+// 	int array_length = sizeof(numbers) / sizeof(numbers[0]); // Each int is equal to 4 bytes, so it would be (total bytes divided by 1 byte being the fist integer in the index of the array of numbers)
+
+// 	// int *pNumbers = &numbers;
+
+// 	// printf("The memo address of number is %p\n", pNumbers);
+// 	printf("The array of numbers is: {");
+// 	for(int i = 0; i < array_length; i++){
+// 		printf("%d ", numbers[i]);
+// 	}
+// 	printf("}\n");
+
+// 	return(0);
+// }
+
+
+// Define and Access Struct Members
+
+// typedef struct
+// {
+// 	char title[20];
+// 	char author[20];
+// 	float price;
+
+// }Book;
+
+// int main()
+// {
+// 	Book book1;
+// 	Book *pbook1;
+
+// 	pbook1 = &book1;
+
+// 	pbook1 = malloc(sizeof(Book)); // Dynamically allocate memory for the instance of Book 'book1', the same size as it's structure
+
+// 	printf("The size of book1 is %ld\n", sizeof(book1)); // Should be (20 + 20 + 4 = 44 bytes)
+
+// 	return(0);
+// }
+
+// int main()
+// {
+// 	int number = 5;
+// 	int* pNumber = &number;
+
+// 	*pNumber = 10;
+
+// 	printf("The location of number in Memory is %p\nAnd the Value is %d\nAnd the size of bytes is %ld\n", pNumber, number, sizeof(*pNumber));
+
+// 	return(0);
+// }
+
+

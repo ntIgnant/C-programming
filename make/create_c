@@ -1,0 +1,6 @@
+create:
+	touch main.c
+
+inport_headers:
+	printf"#include <stdio.h>\n#include <stdlib.h>\n" > main.c
+	@echo the file was created succesfully
