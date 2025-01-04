@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef struct Car{
-	char brand[20];
-	int year;
-	char color [20];
-}car; // Typedef assigns a 'nikname' for the struct
 
-int main()
-{
-	car car1 = {"Toyota", 2005, "Gray"};
-	car car2 = {"Volvo", 2014, "Black"};
+// Assign the struct for Person 'blueprint'
+typedef struct Person{
+	char name[50];
+	int age;
+	char birthplace;
+}Person;
 
-	printf("Car Spects:\n");
-	printf("-Brand: %s\n-Year: %d\n-Color: %s\n", car1.brand, car1.year, car1.color);
+int main(){
+	
+	// Declare an array of 20 pointers to Person (for 20 different usages of the blueprint Person)
+	Person* people[20];
+	int p_index = 0; // Index to iterate over each different person of the 20
 
 	return(0);
 }
