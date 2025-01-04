@@ -72,6 +72,10 @@ int main(){
 		p_index += 1; // Increment the person index to fo the next person to enter new data
 
 	}while(p_index < 20); //Input to create new 'instances' of Person until the number of people reaches 20
-
+	
+	// Free the dynamically allocated memory
+	for(int j = 0; j < 20; j++){
+		free(people[j]);
+	}
 	return(0);
 }
