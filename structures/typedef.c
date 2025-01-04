@@ -7,7 +7,7 @@
 typedef struct Person{
 	char name[50];
 	int age;
-	char birthplace;
+	char birthplace[50];
 }Person;
 
 
