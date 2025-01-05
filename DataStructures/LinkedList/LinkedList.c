@@ -8,6 +8,16 @@ typedef struct Node{
 	struct *Node next; // Pointer to the 'next node'
 }Node;
 
+void traverse(Node* head){
+    Node* tmp = head;
+    printf("Data: ");
+    while(tmp != NULL){
+        printf("%d -> ", tmp->data);
+        tmp = tmp->next; // Nove to the next node of the LinkedList
+    }
+    pritf("NULL\n"); // Last 'item' of the linkedlist is NULL. Data of the tail
+}
+
 int main(){
 	
     Node* head = (Node*)malloc(sizeof(Node)); // Head is always the first node of the Linked List
@@ -29,7 +39,13 @@ int main(){
     fourth->next = NULL; // If a node has NULL for it's next, that means it's the TAIL (last node)
                          
     // Print the linked list
+    traverse(head);
 
+    //Free allocated memory
+    free(head);
+    free(second);
+    free(third);
+    free(fourth);
 	
 	return(0);
 }
