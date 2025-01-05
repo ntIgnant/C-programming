@@ -5,7 +5,7 @@
 
 typedef struct Node{
 	int data; // Data here will be a number
-	struct *Node next; // Pointer to the 'next node'
+	struct Node* next; // Pointer to the 'next node'
 }Node;
 
 void traverse(Node* head){
@@ -15,7 +15,7 @@ void traverse(Node* head){
         printf("%d -> ", tmp->data);
         tmp = tmp->next; // Nove to the next node of the LinkedList
     }
-    pritf("NULL\n"); // Last 'item' of the linkedlist is NULL. Data of the tail
+    printf("NULL\n"); // Last 'item' of the linkedlist is NULL. Data of the tail
 }
 
 int main(){
