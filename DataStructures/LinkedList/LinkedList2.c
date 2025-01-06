@@ -18,6 +18,18 @@ void traversal(Node* head){ // Function to get/print the data of the LinkedList
     printf("NULL\n");
 }
 
+void insertAtBeginning(Node** head, char name[50]){ // Function to add a new Node to the Linked List
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    char tmp_name[50];
+
+    // Get the new name
+    printf("New Name: ");
+    scanf("%s", tmp_name);
+
+    strcpy(newNode->name, tmp_name);
+    newNode->next = head; // The newNode will be the new head
+}
+
 int main(){
     
     Node* head = (Node*)malloc(sizeof(Node)); // First Node
@@ -30,9 +42,20 @@ int main(){
     // Assign the 'next' to the nodes | LINK THE NODES
     head->next = tail;
     tail->next = NULL;
-    
+        
     //Function to print out the values of the LinkedList
     traversal(head);
+
+    //Function to add a new Node to the beginning
+    
+    insertAtBeginning();
+
+    //Free values
+    free(head);
+    free(tail);
+    
+    return(0);
+}
 
     //Free values
     free(head);
