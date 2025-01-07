@@ -22,13 +22,13 @@ void traversal(Node* head){
 }
 
 // ADDATBEGINNING function
-void addAtBeginning(char new_name, int new_age, char new_city){
+void addAtBeginning(Node* current_head, char* new_name, int new_age, char* new_city){
     Node* newHead = (Node*)malloc(sizeof(Node));
     
     strcpy(newHead->name, new_name);
     strcpy(newHead->city, new_city);
     newHead->age = new_age;
-    newHead->next = head; // The next-node of the new head will be the previous head
+    newHead->next = current_head; // The next-node of the new head will be the previous head
 }
 
 int main(){
@@ -48,25 +48,35 @@ int main(){
     tail->age = 19;
     tail->next = NULL; // next-node is NULL for the tail (last node)
 
-    // Add functions
+    // main Interface
+    int menu_choice;
+    
+    printf("[0] Traversal\n[1] addAtBeginning\n");
+    printf("Select One from the index (NUMBER): ");
+    scanf("%d", &menu_choice);
 
-    // traversal() ...Pinrt out the data of the LinkedList
-    traversal(head);
+    switch (menu_choice){
+    
+        case 0:
+                traversal(head);
+                break;
 
-    // addAtBeginning
+        case 1:
+                char tmp_name[50]; // Create temporary values to assign to the new nodes
+                int tmp_age;
+                char tmp_city[50];
+                Node* current_head = head;
 
-    char tmp_name[50]; // Create temporary values to assign to the new nodes
-    int tmp_age;
-    char tmp_city[50];
+                printf("Name: ");
+                scanf("%s", tmp_name);
+                printf("Age: ");
+                scanf("%d", &tmp_age);
+                printf("City: ");
+                scanf("%s", tmp_city);
 
-    printf("Name: ");
-    scanf("%s", tmp_name);
-    printf("Age: ");
-    scanf("%d", &tmp_age);
-    printf("City: ");
-    scanf("%s", tmp_city);
-
-    addAtBeginning(char name, int age, char city);
+                addAtBeginning(current_head, tmp_name, tmp_age, tmp_city);
+        
+    }
 
     // addAtEnd
     //Free dynamically allocated memory
