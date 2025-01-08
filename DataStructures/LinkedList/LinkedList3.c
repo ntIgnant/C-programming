@@ -80,7 +80,6 @@ int main(){
 
     // addAtEnd
     //Free dynamically allocated memory
-    free(head);
-    free(tail);
+    for() ...
     return(0);
 }
