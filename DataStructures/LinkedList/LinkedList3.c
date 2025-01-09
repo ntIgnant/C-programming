@@ -32,10 +32,13 @@ void addAtBeginning(Node* current_head, char* new_name, int new_age, char* new_c
 }
 
 void freeMemo(Node* head){
-    Node* temp_node = head;
-    while(temp_node->next != NULL){
+    Node* current = head;
+    Node* temp_node;
+
+    while(current != NULL){
+        temp_node = current;
         free(temp_node);
-        temp_node = temp_node->next;
+        current = current->next;
     }
     printf("Memory FREED!\n");
 }
