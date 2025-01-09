@@ -31,6 +31,15 @@ void addAtBeginning(Node* current_head, char* new_name, int new_age, char* new_c
     newHead->next = current_head; // The next-node of the new head will be the previous head
 }
 
+void freeMemo(Node* head){
+    Node* temp_node = head;
+    while(temp_node->next != NULL){
+        free(temp_node);
+        temp_node = temp_node->next;
+    }
+    printf("Memory FREED!\n");
+}
+
 int main(){
 
     // Create the initial Nodes (head and tail)
@@ -80,6 +89,6 @@ int main(){
 
     // addAtEnd
     //Free dynamically allocated memory
-    for() ...
+    freeMemo(head);
     return(0);
 }
