@@ -11,7 +11,7 @@ typedef struct Node {
 void traversal(Node* head){
     Node* tmp_head = head;
     while(tmp_head != NULL){
-        printf("%d\n", tmp_head);
+        printf("%d\n", tmp_head->data);
         tmp_head = tmp_head->next;
     }
     printf("NULL\n"); // Show this when there is no more data to show
