@@ -7,6 +7,16 @@ typedef struct Node {
     struct Node* next; // Next node for Doubly Linked List
 } Node;
 
+// Traversal function to print out the data
+void traversal(Node* head){
+    Node* tmp_head = head;
+    while(tmp_head != NULL){
+        printf("%d\n", tmp_head);
+        tmp_head = tmp_head->next;
+    }
+    printf("NULL\n"); // Show this when there is no more data to show
+}
+
 int main() {
     // Declare an array of pointers for 3 nodes
     Node* node[3];
@@ -36,6 +46,7 @@ int main() {
     node[2]->prev = node[1];
     node[2]->next = NULL; // Tail
 
+    /*
     // Print the doubly linked list
     for (int i = 0; i < 3; i++) {
         printf("Node %d: Data = %d, Prev = %p, Next = %p\n", 
@@ -45,6 +56,10 @@ int main() {
             (void*)node[i]->next
         );
     }
+    */
+
+    // Traversal function (to print out the data)
+    traversal(node[0]);
 
     // Free memory
     for (int i = 0; i < 3; i++) {
