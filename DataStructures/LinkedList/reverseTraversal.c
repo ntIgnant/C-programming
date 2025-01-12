@@ -9,6 +9,15 @@ typedef struct Node{
 }Node;
 
 // Reverse Traversal Function
+void reverseTraversal(Node* tail){
+    Node* tmp_tail = tail;
+    printf("REVERSED DATA: \n");
+    while(tmp_tail->prev != NULL){
+        printf("%s | ", tmp_tail->name);
+        tmp_tail = tmp_tail->prev;
+    }
+    printf("All data printed out...\n");
+}
 
 int main(){
     const int node_amount = 3;
@@ -36,6 +45,7 @@ int main(){
     strcpy(node[2]->name, "Oscar");
     node[2]->next = NULL; // Bc it's the tail of the DLinkedList
 
+    reverseTraversal(node[2]);
 
     return(0);
 }
