@@ -50,36 +50,42 @@ void reverseTraversal(Node* tail){
     printf("All data printed out...\n");
 }
 
-void addAtBeginning(Node* currHead, char newName[20]){
+void addAtBeginning(Node** head, char newName[20]) {
     Node* newHead = (Node*)malloc(sizeof(Node));
+    strcpy(newHead->name, newName);
+    newHead->prev = NULL;
+    newHead->next = *head;
 
-    if(newHead == NULL){
-        printf("Memory Allocation Failed (newHead)\n");
-        exit(1);
+    if (*head != NULL) {
+        (*head)->prev = newHead; // Updates the actual head's previous pointer
     }
 
-    newHead->prev = currHead;
-    strcpy(newHead->name,newName);
-    newHead->next = NULL;
-
-    printf("Added '%s' as Head (Beginning)\n", newName);
+    *head = newHead; // Updates the actual head pointer in main()
 }
 
-void addAtEnd(Node* currTail, char newName[20]){
+void addAtEnd(Node** tail, char newName[20]) {
+    // Create a new node
     Node* newTail = (Node*)malloc(sizeof(Node));
     
-    if(newTail == NULL){
-        printf("Memory Fllocation Failed (newTail)\n");
+    if (newTail == NULL) {
+        printf("Memory Allocation Failed (newTail)\n");
         exit(1);
     }
-
-
-    newTail->prev = currTail;
-    strcpy(newTail->name, newName);
-    newTail->next = NULL;
     
-    printf("Added '%s' as Taild (End)\n", newName);
+    // Set the data for the new node
+    strcpy(newTail->name, newName);
+    newTail->next = NULL; // New tail's next is NULL
+    newTail->prev = *tail; // New tail's previous points to the current tail
 
+    // Update the current tail's next to point to the new node
+    if (*tail != NULL) {
+        (*tail)->next = newTail;
+    }
+
+    // Update the tail pointer to point to the new tail
+    *tail = newTail;
+
+    printf("Added '%s' as Tail (End)\n", newName);
 }
 
 int main(){
@@ -109,6 +115,40 @@ int main(){
     node[2]->next = NULL; // Bc it's the tail of the DLinkedList
 
     // Menu function..
+    // Main loop for menu
+    while (true) {
+        int temp_index = menu();
+
+        switch (temp_index) {
+            case 0:
+                traversal(node[0]);
+                break;
+
+            case 1:
+                reverseTraversal(node[2]);
+                break;
+
+            case 2: {
+                char newNameHead[20];
+                printf("Please enter a Name: ");
+                scanf("%s", newNameHead);
+                addAtBeginning(&node[0], newNameHead);
+                break;
+            }
+
+            case 3: {
+                char newNameTail[20];
+                printf("Please enter a Name: ");
+                scanf("%s", newNameTail);
+                addAtEnd(&node[2], newNameTail);
+                break;
+            }
+
+            default:
+                printf("Invalid Option. Exiting...\n");
+                exit(0);
+        }
+    }
 
 
     return(0);
