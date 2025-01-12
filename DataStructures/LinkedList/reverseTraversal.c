@@ -19,6 +19,23 @@ void reverseTraversal(Node* tail){
     printf("All data printed out...\n");
 }
 
+void addAtEnd(Node* currTail, char newName[20]){
+    Node* newTail = (Node*)malloc(sizeof(Node));
+    
+    if(newTail == NULL){
+        printf("Memory allocation failed (newTail)\n");
+        exit(1);
+    }
+
+
+    newTail->prev = currTail;
+    strcpy(newTail->name, newName);
+    newTail->next = NULL;
+    
+    printf("Added '%s' as Taild (End)\n", newName);
+
+}
+
 int main(){
     const int node_amount = 3;
 
