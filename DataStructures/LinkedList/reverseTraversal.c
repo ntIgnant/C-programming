@@ -12,7 +12,7 @@ typedef struct Node{
 void reverseTraversal(Node* tail){
     Node* tmp_tail = tail;
     printf("REVERSED DATA: \n");
-    while(tmp_tail->prev != NULL){
+    while(tmp_tail != NULL){
         printf("%s | ", tmp_tail->name);
         tmp_tail = tmp_tail->prev;
     }
