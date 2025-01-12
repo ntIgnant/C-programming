@@ -6,7 +6,7 @@
  */
 
 int addPointers(int* p1, int* p2){
-    pSum = (p1*) + (p2*);
+    int pSum = (*p1) + (*p2);
     return(pSum);
 }
 
@@ -19,6 +19,6 @@ int main(){
 
     int result = addPointers(pNum1, pNum2);
 
-    printf("The sum of %d + %d = %d\n", pNum*, pNum2*, result);
+    printf("The sum of %d + %d = %d\n", *pNum1, *pNum2, result);
     return(0);
 }
