@@ -19,11 +19,26 @@ void reverseTraversal(Node* tail){
     printf("All data printed out...\n");
 }
 
+void addAtBeginning(Node* currHead, char newName[20]){
+    Node* newHead = (Node*)malloc(sizeof(Node));
+
+    if(newHead == NULL){
+        printf("Memory Allocation Failed (newHead)\n");
+        exit(1);
+    }
+
+    newHead->prev = currHead;
+    strcpy(newHead->name,newName);
+    newHead->next = NULL;
+
+    printf("Added '%s' as Head (Beginning)\n", newName);
+}
+
 void addAtEnd(Node* currTail, char newName[20]){
     Node* newTail = (Node*)malloc(sizeof(Node));
     
     if(newTail == NULL){
-        printf("Memory allocation failed (newTail)\n");
+        printf("Memory Fllocation Failed (newTail)\n");
         exit(1);
     }
 
