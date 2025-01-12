@@ -1,12 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 typedef struct Node{
     struct Node* prev; // Revious Node bc Doubly LinkedList
     char name[20];
     struct Node* next;
 }Node;
+
+// Main Menu function
+int menu(){
+    int index_opt;
+    printf("[HOOOLLLOOWW] just a DoublyLinkedList\n\n");
+    printf("[0] Traversal\n[1] ReverseTraversal\n[2] AddAtBegginig\n[3] AddAtEnd\n");
+
+    while(true){
+        printf("Please Select One (index): ");
+        scanf("%d", &index_opt);
+        if(index_opt < 0 || index_opt > 3){
+            printf("Out of range, try again\n");
+        }
+        else{
+            return(index_opt);
+        }
+    };
+
+}
+
+//Normal Traversal (printf from head to tail)
+void traversal(Node* head){
+    Node* tmp_head = head;
+    printf("DATA:\n");
+    while(tmp_head != NULL){
+        printf("%s | ", tmp_head->name);
+        tmp_head = tmp_head->next;
+    }
+    printf("All data printed out...\n");
+}
 
 // Reverse Traversal Function
 void reverseTraversal(Node* tail){
@@ -77,7 +108,8 @@ int main(){
     strcpy(node[2]->name, "Oscar");
     node[2]->next = NULL; // Bc it's the tail of the DLinkedList
 
-    reverseTraversal(node[2]);
+    // Menu function..
+
 
     return(0);
 }
