@@ -26,9 +26,29 @@ int menu(){
 // Stack has 3 main functions (push, pop, get...?)
 
 
-
 int main(){
+    int tmp_menu_index;
+    while(true){
+        tmp_menu_index = menu();
+
+        switch(tmp_menu_index){
+            case 0:
+                //push function here
+                menu();
+
+            case 1:
+                //pop function here
+                menu();
+
+            case 2:
+                // get function here (I think it was get)
+                menu();
+
+            default:
+                break; //Default option (this one is unreachable rn)
+        }
+    }
     
-    
+
     return(0);
 }
