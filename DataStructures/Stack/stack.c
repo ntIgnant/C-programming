@@ -1,19 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef struct Node{
-    struct Node* next;
     char name[20]; // Data for this LinkedList Based stack
+    struct Node* next;
 }Node;
 
-void push(Node* head){
-    Node** tmp_head = head;
+void push(Node* head, char new_name[20]){
+    Node* new_head = (Node*)malloc(sizeof(Node)); // Allocate memory for the new node
 
+    // Assign values
+    strcpy(new_head->name, new_name);
+    new_head->next = NULL; //Bc it's gonna be the new head (it has no next pointer)
+
+    // RE-Assign the next-node of the last head
+    Node* last_head = head;
+    last_head->next = new_head;
+    
 }
 
 int menu(){
     int menu_index;
+
+    // Allocate memory for the first node
+    Node* node0 = (Node*)malloc(sizeof(Node));
+
+    // Assign the values/info for node0
+    strcpy(node0->name, "Name0");
+    node0->next = NULL; // NULL bc it's the head
+
     printf("Menu for LinkedList-based stack...\n");
 
     while(true){
@@ -49,6 +66,10 @@ int main(){
         switch(tmp_menu_index){
             case 0:
                 //push function here
+                char tmp_name[20];
+                printf("Please enter a name: ");
+                scanf("%s", tmp_name);
+                push(node0, tmp_name); // Pass the values (initial node, new_name for the new node)
                 menu();
 
             case 1:
