@@ -7,6 +7,11 @@ typedef struct Node{
     char name[20]; // Data for this LinkedList Based stack
 }Node;
 
+void push(Node* head){
+    Node** tmp_head = head;
+
+}
+
 int menu(){
     int menu_index;
     printf("Menu for LinkedList-based stack...\n");
@@ -27,6 +32,16 @@ int menu(){
 
 
 int main(){
+
+    Node* node0 = malloc(sizeof(Node));
+    if(node0 == NULL){
+        printf("Dynamic memo allocation for initial node\n");
+        exit(1);
+    }
+    else{
+        printf("Oke (initial node)\n");
+    }
+
     int tmp_menu_index;
     while(true){
         tmp_menu_index = menu();
