@@ -93,5 +93,6 @@ int main(){
     // addAtEnd
     //Free dynamically allocated memory
     freeMemo(head);
+    freeMemo(tail);
     return(0);
 }
