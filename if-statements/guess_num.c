@@ -34,8 +34,21 @@ int main(){
     while(true){
         printf("Please enter a Number from 0 - 9: ");
         if(scanf("%d", &user_num) == 1 && user_num >= 0 && user_num <= 9){
-            break; // If this happends, it means that the input read an int, so all fine
-        }
+
+            // Now, evaluate the number
+            if(user_num == ran_num){
+                printf("CORRECT! The number was %d\n", user_num);
+                exit(0); // Exit (with no error code)
+            }
+            else if(user_num < ran_num){
+                printf("The random number is GREATER than %d\n", user_num);
+                while(getchar() != '\n'); //Clean the buffer
+            }
+            else if(user_num > ran_num){
+                printf("The random number is LESS than %d\n", user_num);
+            }
+            }
+            // break; // If this happends, it means that the input read an int, so all fine
         else if(user_num == NULL){
             printf("Input Not Accepted, try again\n");
             while(getchar() != '\n'); // Clearn the input buffer
@@ -48,8 +61,9 @@ int main(){
         }
 
     }
-    printf("User Number: %d\nRandom Number: %d\n", user_num, ran_num); // DEBUGG
+    //printf("User Number: %d\nRandom Number: %d\n", user_num, ran_num); // DEBUGG
     
+
 
     return 0;
 }
