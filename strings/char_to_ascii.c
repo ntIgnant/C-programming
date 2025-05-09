@@ -8,6 +8,10 @@ int main(){
     char user_char;
     int user_ascii; // Should be in range 0 | 127
 
+
+    printf("Please enter 0 or 1: "); // This is really bad but I just wanna go to sleep rn, so i'm not gonna fix it
+    scanf("%d", &user_opt);
+
     while(user_opt < 0 || user_opt > 1){
         printf("Please enter one of the following (index)\n[0] Char -> ASCII\n[1] ASCII -> Char\n");
         scanf("%d", &user_opt); // Get menu opt
@@ -21,9 +25,9 @@ int main(){
         }
         else if(user_opt == 0){
             printf("Please enter a value (from 0 - 127): ");
-            scanf("%d", user_ascii); // Get the ascii val
+            scanf("%d", &user_ascii); // Get the ascii val
 
-            printf("The ASCII '%d' is the hcaracter '%c'\n", user_ascii, user_ascii);
+            printf("The ASCII '%d' is the character '%c'\n", user_ascii, user_ascii);
             break;
         }
         else{
