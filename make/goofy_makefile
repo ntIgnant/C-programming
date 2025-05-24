@@ -1,0 +1,8 @@
+hello:
+	@echo "ollow"
+
+greet:
+	@echo "this is some goofy shit"
+
+bye: hello greet
+	@echo "Okay, bye"
