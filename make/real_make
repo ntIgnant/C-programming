@@ -1,0 +1,34 @@
+# comments in makefiles are done like this btw
+
+# Declare some variables
+CC := gcc
+
+CFLAGS := -Wall #Allow all warnings flag
+
+BUILD_DIR := ./CompDir
+
+# 'all' will execute all the commands for the comilation
+
+all: create_dir compile link # all will do everything
+
+create_dir:
+	@echo "Directory created 'CompDir'"
+	mkdir CompDir
+
+compile: main.c di_persona.c
+	@echo "Compiling main and di_persona into object files .o"
+	$(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c di_persona.c -o di_persona.o
+
+link: compile
+	@echo "Linking files..."
+	$(CC) main.o di_persona.o -o HolaPersona # link both object files
+	mv HolaPersona $(BUILD_DIR)
+
+clean:
+	@echo "Cleaning everything..."
+	rm -f ./CompDir/* # remove all the files inside the folder
+	rm -dr ./CompDir # remove the actual folder
+
+.PHONY: all create_dir compile link clean
+
