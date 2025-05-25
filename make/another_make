@@ -1,0 +1,13 @@
+all: create
+
+create:
+	@echo "New empty file created"
+	touch empty.txt
+
+edit: create
+	@echo "'Hello' content added into the txt file"
+	printf "Hello" > empty.txt
+
+clean: create
+	@echo "Cleaning..."
+	rm -f empty.txt
